@@ -2,11 +2,10 @@
 <html lang="es">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Natural Touch · Adornos naturales que iluminan tus espacios</title>
 
 <style>
-/* ================== Variables ================== */
 :root{
   --radius: 16px;
   --brand: #0f5b40;
@@ -16,20 +15,17 @@
   --card-bg: #ffffff;
   --card-ring: #dfe9e3;
 
-  /* Tamaños de tarjetas */
   --mat-card-w: 220px;
   --mat-card-img-h: 170px;
-  --render-card-w: 260px;
-  --render-card-img-h: 190px;
 }
 
-/* ================== Reset mínimo ================== */
+/* Reset */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 html{scroll-behavior:smooth}
 img{max-width:100%;display:block}
 
-/* ================== Fondo continuo ================== */
+/* Fondo */
 body{
   color:var(--ink);
   font: 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
@@ -46,14 +42,22 @@ body::before{
   pointer-events:none; z-index:-1;
 }
 
-/* ================== Contenedor ================== */
-.container{ max-width: 1200px; margin: 0 auto; padding: 24px; }
+/* Contenedor */
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
+}
 section{ scroll-margin-top: 18px; }
 
-/* ================== HEADER ================== */
+/* Header */
 .topbar{
   display:flex; align-items:center; justify-content:space-between;
   padding: 10px 24px 0 24px; margin-bottom: 6px;
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
 }
 .brand{display:flex; gap:10px; align-items:center; font-weight:700; color:var(--brand); font-size:20px}
 .brand img{width:32px;height:32px;border-radius:8px;object-fit:cover}
@@ -72,7 +76,6 @@ section{ scroll-margin-top: 18px; }
 .btn.btn-wa:hover{ filter:brightness(.96) }
 .btn.disabled{ pointer-events:none; opacity:.55; filter:saturate(.2) }
 
-/* Ícono WhatsApp con SVG (nítido) */
 .btn-wa .wa-icon{
   width: 26px; height: 26px; margin-right:.55rem;
   background:#fff; display:inline-block; vertical-align:-6px;
@@ -80,8 +83,8 @@ section{ scroll-margin-top: 18px; }
           mask: url('assets/whatsapp/logo_whatsapp.svg') no-repeat center/contain;
 }
 
-/* ================== HERO ================== */
-.hero{ padding: 8px 24px 4px 24px; }
+/* Hero */
+.hero{ padding: 8px 24px 4px 24px; padding-left: max(24px, env(safe-area-inset-left)); padding-right: max(24px, env(safe-area-inset-right)); }
 .hero h1{
   margin: 0 0 8px 0;
   color:#0e3f2e; letter-spacing:.2px;
@@ -96,13 +99,11 @@ section{ scroll-margin-top: 18px; }
 .hero p{ margin:0; color: #3a6b56 }
 .hero p b{ color:#0f5b40 }
 
-/* ================== LAYOUT ================== */
-.grid{
-  display:grid; grid-template-columns: 340px 1fr; gap: 16px;
-}
+/* Layout */
+.grid{ display:grid; grid-template-columns: 340px 1fr; gap: 16px; }
 @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } }
 
-/* Panel selector */
+/* Panel */
 .panel{
   background: rgba(255,255,255,.82); backdrop-filter: blur(4px);
   border:1px solid var(--card-ring); border-radius: var(--radius);
@@ -110,10 +111,8 @@ section{ scroll-margin-top: 18px; }
 }
 .panel h3{ margin:0; color:var(--brand) }
 
-/* Tarjetas grid (luz/base) */
+/* Cards */
 .card-list{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* Tarjeta opción */
 .opt-card{
   background: var(--card-bg); border:1px solid var(--card-ring);
   border-radius: 14px; padding:10px; cursor:pointer; user-select:none;
@@ -127,14 +126,9 @@ section{ scroll-margin-top: 18px; }
 .small{ font-size:12px; color: #4c6a5a; }
 .panel .btns{ display:flex; gap:10px; align-items:center; margin-top:10px; flex-wrap:wrap }
 
-/* ================== GALERÍA PLANTAS ================== */
-.plant-controls{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:10px; margin-top:8px;
-}
-.plant-controls .hint{
-  font-size:12px; color:#4c6a5a;
-}
+/* Galería plantas */
+.plant-controls{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:8px; }
+.plant-controls .hint{ font-size:12px; color:#4c6a5a; }
 .icon-btn{
   width:34px; height:34px; border-radius:999px;
   border:1px solid #cfe0d7; background:#eaf5ef;
@@ -152,42 +146,20 @@ section{ scroll-margin-top: 18px; }
   -webkit-overflow-scrolling: touch;
 }
 .plant-gallery::-webkit-scrollbar{ height:10px; }
-.plant-gallery::-webkit-scrollbar-thumb{
-  background:#cfe0d7; border-radius:999px;
-}
-.plant-gallery .opt-card{
-  flex:0 0 auto;
-  min-width: 240px;
-  scroll-snap-align:start;
-}
-.plant-gallery .opt-card img{
-  height: 160px;
-  object-fit: cover;
-}
+.plant-gallery::-webkit-scrollbar-thumb{ background:#cfe0d7; border-radius:999px; }
+.plant-gallery .opt-card{ flex:0 0 auto; min-width: 240px; scroll-snap-align:start; }
+.plant-gallery .opt-card img{ height: 160px; object-fit: cover; }
 
-/* Punticos indicadores */
-.plant-dots{
-  display:flex; gap:8px; justify-content:center;
-  margin: 6px 0 2px 0;
-}
+.plant-dots{ display:flex; gap:8px; justify-content:center; margin: 6px 0 2px 0; }
 .plant-dot{
-  width:9px; height:9px;
-  border-radius:999px;
-  border:1px solid #cfe0d7;
-  background:#eaf5ef;
-  cursor:pointer;
-  padding:0;
+  width:9px; height:9px; border-radius:999px;
+  border:1px solid #cfe0d7; background:#eaf5ef;
+  cursor:pointer; padding:0;
 }
-.plant-dot.active{
-  background: var(--brand);
-  border-color: var(--brand);
-}
-.plant-dot:focus{
-  outline: 2px solid rgba(15,91,64,.35);
-  outline-offset: 2px;
-}
+.plant-dot.active{ background: var(--brand); border-color: var(--brand); }
+.plant-dot:focus{ outline: 2px solid rgba(15,91,64,.35); outline-offset: 2px; }
 
-/* ================== Resumen (SIN precios) ================== */
+/* Resumen */
 .resume{
   margin-top:12px; padding:12px; border-radius:12px;
   border:1px dashed #cfe0d7; background:#fbfdfc;
@@ -200,38 +172,15 @@ section{ scroll-margin-top: 18px; }
 .resume .chip{
   border:1px solid #cfe0d7; background:#eaf5ef; padding:6px 10px; border-radius:999px; font-weight:700;
 }
-.resume .chip.selected{
-  background:#cfead9; border-color:#b9ddca;
-}
+.resume .chip.selected{ background:#cfead9; border-color:#b9ddca; }
 .resume .cta{ margin-top:10px; }
 
-/* ===== Encabezado del resumen ===== */
-.resume-head{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom: 10px;
-}
-.resume-title{
-  font-weight: 900;
-  color: var(--brand);
-  letter-spacing: .2px;
-}
-.resume-sub{
-  font-size: 12px;
-  color: #6a897a;
-  font-weight: 700;
-  text-align:right;
-}
+.resume-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:10px; margin-bottom: 10px; }
+.resume-title{ font-weight: 900; color: var(--brand); letter-spacing: .2px; }
+.resume-sub{ font-size: 12px; color: #6a897a; font-weight: 700; text-align:right; }
 
-/* ===== Mini preview: SOLO IMÁGENES ===== */
-.mini-pv{
-  display:grid;
-  gap:10px;
-  margin-bottom: 10px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
+/* Mini preview: solo imágenes */
+.mini-pv{ display:grid; gap:10px; margin-bottom: 10px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .mini-item{
   min-width: 0;
   border:1px solid #dfe9e3;
@@ -252,16 +201,11 @@ section{ scroll-margin-top: 18px; }
   display:grid;
   place-items:center;
 }
-.mini-thumb img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
+.mini-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
 .mini-item.empty{ opacity:.55; }
 .mini-item.empty .mini-thumb img{ filter: grayscale(1); }
 
-/* ✅ Aviso TyC (mini popup inline) */
+/* Aviso TyC */
 .tyc-alert{
   display:none;
   margin-top:8px;
@@ -275,7 +219,7 @@ section{ scroll-margin-top: 18px; }
 }
 .tyc-alert.show{ display:block; }
 
-/* ================== Secciones ================== */
+/* Secciones */
 .section{
   margin: 14px 0;
   background: rgba(255,255,255,.82); border:1px solid var(--card-ring);
@@ -284,22 +228,15 @@ section{ scroll-margin-top: 18px; }
 .section h2{ margin:0 0 4px 0; color:var(--brand) }
 .section .hint{ margin:0 0 8px 0; color:#6a897a; font-size:14px }
 
-/* Bloque marca dentro del layout */
-.brand-story .cols{
-  display:grid; grid-template-columns: 1fr 1fr; gap:14px;
-}
+.brand-story .cols{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
 .brand-story .tag{
   display:inline-flex; align-items:center; gap:8px;
   padding:6px 10px; border-radius:999px;
   border:1px solid #cfe0d7; background:#eaf5ef;
   font-weight:800; color:#0f5b40; font-size:12px;
 }
-.brand-story .lead{
-  font-weight:900; color:#0e3f2e; margin:10px 0 0 0;
-}
-@media (max-width: 820px){
-  .brand-story .cols{ grid-template-columns: 1fr; }
-}
+.brand-story .lead{ font-weight:900; color:#0e3f2e; margin:10px 0 0 0; }
+@media (max-width: 820px){ .brand-story .cols{ grid-template-columns: 1fr; } }
 
 /* Materiales */
 .materiales .cards{
@@ -314,60 +251,30 @@ section{ scroll-margin-top: 18px; }
 .materiales .cards > figure:hover{ transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,.06) }
 .materiales figure.selected{ outline:2px solid #66c19b }
 .materiales figcaption{ text-align:center; margin-top:6px; font-weight:700; color:#355e4b }
-.materiales .cards img{
-  width:100%; height:var(--mat-card-img-h); object-fit:contain; border-radius:12px;
-}
+.materiales .cards img{ width:100%; height:var(--mat-card-img-h); object-fit:contain; border-radius:12px; }
 
 /* Guía */
 .guia{ padding: 12px; background: rgba(255,255,255,.82); border:1px solid var(--card-ring); border-radius: var(--radius); }
 .guia h2{ margin:0 0 6px 0; color:#0f5b40; }
 .guia p{ margin:0 0 12px 0; color:#2e5243 }
-.guia .item{
-  padding:10px 12px; border:1px dashed #d4e3db; border-radius:12px; background:#fbfdfc;
-  margin:10px 0;
-}
+.guia .item{ padding:10px 12px; border:1px dashed #d4e3db; border-radius:12px; background:#fbfdfc; margin:10px 0; }
 .guia .item b{ color:#0f5b40 }
 
-/* ✅ About */
-.card{
-  background: rgba(255,255,255,.82);
-  border:1px solid var(--card-ring);
-  border-radius: var(--radius);
-  padding: 14px;
-}
-.about-block{
-  display:grid;
-  grid-template-columns: 300px 1fr;
-  gap:16px;
-  align-items:start;
-}
-.about-media img{
-  border-radius:14px;
-  width:100%;
-  height:auto;
-  object-fit:cover;
-}
-.about-media small{
-  display:block;
-  color:#4b6b5a;
-  margin-top:6px;
-}
-@media (max-width: 780px){
-  .about-block{ grid-template-columns: 1fr }
-}
+/* About */
+.card{ background: rgba(255,255,255,.82); border:1px solid var(--card-ring); border-radius: var(--radius); padding: 14px; }
+.about-block{ display:grid; grid-template-columns: 300px 1fr; gap:16px; align-items:start; }
+.about-media img{ border-radius:14px; width:100%; height:auto; object-fit:cover; }
+.about-media small{ display:block; color:#4b6b5a; margin-top:6px }
+@media (max-width: 780px){ .about-block{ grid-template-columns: 1fr } }
 
 /* TyC expandable */
 .toggler{ cursor:pointer; display:inline-flex; align-items:center; gap:6px; font-weight:700; color:var(--brand) }
 .toggler::after{ content:"⬇"; }
 .toggler[aria-expanded="true"]::after{ content:"⬆"; }
-.toggler + .tyc-more{
-  max-height:0; overflow:hidden; transition:max-height .35s ease;
-}
-.toggler[aria-expanded="true"] + .tyc-more{
-  max-height:800px;
-}
+.toggler + .tyc-more{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
+.toggler[aria-expanded="true"] + .tyc-more{ max-height:800px; }
 
-/* util */
+/* Util */
 .m0{margin:0}
 .mt6{margin-top:6px}
 .mt10{margin-top:10px}
@@ -375,35 +282,36 @@ section{ scroll-margin-top: 18px; }
 .mt14{margin-top:14px}
 .hr{ height:1px; background:#dfe9e3; margin:12px 0 }
 
-/* ================== MOBILE FIRST (parches para smartphone) ================== */
+/* ================== Mobile-first ================== */
 @media (max-width: 720px){
-  /* En móviles, el fixed del fondo puede verse raro o pesado */
   body{ background-attachment: scroll; }
 
-  /* Más compacto */
-  .container{ padding: 14px; }
+  .container{
+    padding: 14px;
+    padding-left: max(14px, env(safe-area-inset-left));
+    padding-right: max(14px, env(safe-area-inset-right));
+  }
 
-  /* Header en 2 filas */
-  .topbar{ padding: 10px 14px 0 14px; gap:10px; flex-wrap:wrap; }
+  .topbar{
+    padding: 10px 14px 0 14px;
+    padding-left: max(14px, env(safe-area-inset-left));
+    padding-right: max(14px, env(safe-area-inset-right));
+    gap:10px; flex-wrap:wrap;
+  }
   .actions{ width:100%; justify-content:flex-start; }
   .btn{ padding: 10px 14px; font-size:14px; }
 
-  /* Quitar sticky del panel */
   .grid{ grid-template-columns:1fr; gap:12px; }
   .panel{ position:relative; top:auto; }
 
-  /* Cards luz/base: más bajitas */
   .opt-card{ padding:8px; border-radius:14px; }
   .opt-card img{ height:92px; border-radius:12px; }
   .opt-card small{ font-size:12px; }
 
-  /* Galería plantas: tarjetas más pequeñas */
   .plant-gallery{ padding:10px 2px 6px 2px; }
   .plant-gallery .opt-card{ min-width: 200px; }
   .plant-gallery .opt-card img{ height:130px; }
 
-  /* Resumen: apilar título/subtítulo y compactar preview */
-  .resume{ padding:12px; }
   .resume-head{ flex-direction:column; align-items:flex-start; }
   .resume-sub{ text-align:left; }
 
@@ -411,27 +319,24 @@ section{ scroll-margin-top: 18px; }
   .mini-item{ padding:8px; }
   .mini-thumb{ width:44px; height:44px; border-radius:12px; }
 
-  /* Chips más cómodos */
   .resume .chip{ padding:8px 10px; }
   .resume .ship{ gap:8px; }
 
-  /* Foto de Carolina: limitada */
-  .about-media img{
-    height: 340px;
-    object-fit: cover;
-  }
+  .about-media img{ height: 340px; object-fit: cover; }
 }
 
-/* Teléfonos muy pequeños */
 @media (max-width: 420px){
-  /* Luz/base en 1 columna */
   .card-list{ grid-template-columns:1fr; }
-
-  /* Plantas aún más compactas */
   .plant-gallery .opt-card{ min-width: 170px; }
   .plant-gallery .opt-card img{ height:120px; }
-
   .opt-card img{ height:88px; }
+}
+
+@media (max-width: 360px){
+  .brand{ font-size:18px; }
+  .brand img{ width:28px; height:28px; }
+  .plant-gallery .opt-card{ min-width: 160px; }
+  .mini-thumb{ width:40px; height:40px; }
 }
 </style>
 </head>
@@ -668,7 +573,6 @@ section{ scroll-margin-top: 18px; }
   </main>
 
 <script>
-/* ================== Util selección con toggle (pasa card) ================== */
 function wireSelectable(containerId, onChange){
   const el = document.getElementById(containerId);
   if(!el) return;
@@ -689,7 +593,6 @@ function wireSelectable(containerId, onChange){
   });
 }
 
-/* ================== Estado + WhatsApp ================== */
 const phone = '573183604806';
 const state = { planta:'', luz:'', base:'', frasco:'', piedras:'', zona:'' };
 
@@ -711,7 +614,6 @@ Acepto Términos y Condiciones.`;
   return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 }
 
-/* ================== Resumen ================== */
 const r = {
   planta:  document.getElementById('r-planta'),
   luz:     document.getElementById('r-luz'),
@@ -725,7 +627,6 @@ const r = {
   alert:   document.getElementById('tyc-alert')
 };
 
-/* Mini preview (solo imagen) refs */
 const pv = {
   planta: document.getElementById('pv-planta'),
   luz:    document.getElementById('pv-luz'),
@@ -767,11 +668,9 @@ function paintResume(){
     a.setAttribute('aria-disabled', String(!canOrder));
   });
 
-  // ✅ Aviso TyC: solo si ya hay selección y no aceptó
   r.alert.classList.toggle('show', anyMain && !r.chk.checked);
 }
 
-/* ===== Zona envío ===== */
 function toggleZone(btn, zoneValue){
   const isSelected = btn.classList.contains('selected');
   r.zBog.classList.remove('selected');
@@ -788,10 +687,9 @@ function toggleZone(btn, zoneValue){
 r.zBog.addEventListener('click', ()=> toggleZone(r.zBog,'bogota'));
 r.zAr.addEventListener('click',  ()=> toggleZone(r.zAr,'around'));
 
-/* TyC */
 r.chk.addEventListener('change', paintResume);
 
-/* ================== Carrusel plantas: punticos + auto-centrado ================== */
+/* Carrusel plantas */
 const plantRow  = document.getElementById('opt-planta');
 const plantPrev = document.getElementById('plant-prev');
 const plantNext = document.getElementById('plant-next');
@@ -860,7 +758,7 @@ if(plantRow){
 }
 buildDots();
 
-/* ================== Selecciones ================== */
+/* Selecciones */
 wireSelectable('opt-planta', (v, card) => {
   state.planta = v;
   setMiniImage('planta', v, v ? card : null);
@@ -895,7 +793,6 @@ if(tycToggle){
   });
 }
 
-/* init */
 paintResume();
 </script>
 </body>
