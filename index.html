@@ -328,7 +328,7 @@ section{ scroll-margin-top: 18px; }
 }
 .guia .item b{ color:#0f5b40 }
 
-/* ✅ About (re-agregado) */
+/* ✅ About */
 .card{
   background: rgba(255,255,255,.82);
   border:1px solid var(--card-ring);
@@ -374,6 +374,65 @@ section{ scroll-margin-top: 18px; }
 .mt12{margin-top:12px}
 .mt14{margin-top:14px}
 .hr{ height:1px; background:#dfe9e3; margin:12px 0 }
+
+/* ================== MOBILE FIRST (parches para smartphone) ================== */
+@media (max-width: 720px){
+  /* En móviles, el fixed del fondo puede verse raro o pesado */
+  body{ background-attachment: scroll; }
+
+  /* Más compacto */
+  .container{ padding: 14px; }
+
+  /* Header en 2 filas */
+  .topbar{ padding: 10px 14px 0 14px; gap:10px; flex-wrap:wrap; }
+  .actions{ width:100%; justify-content:flex-start; }
+  .btn{ padding: 10px 14px; font-size:14px; }
+
+  /* Quitar sticky del panel */
+  .grid{ grid-template-columns:1fr; gap:12px; }
+  .panel{ position:relative; top:auto; }
+
+  /* Cards luz/base: más bajitas */
+  .opt-card{ padding:8px; border-radius:14px; }
+  .opt-card img{ height:92px; border-radius:12px; }
+  .opt-card small{ font-size:12px; }
+
+  /* Galería plantas: tarjetas más pequeñas */
+  .plant-gallery{ padding:10px 2px 6px 2px; }
+  .plant-gallery .opt-card{ min-width: 200px; }
+  .plant-gallery .opt-card img{ height:130px; }
+
+  /* Resumen: apilar título/subtítulo y compactar preview */
+  .resume{ padding:12px; }
+  .resume-head{ flex-direction:column; align-items:flex-start; }
+  .resume-sub{ text-align:left; }
+
+  .mini-pv{ gap:8px; }
+  .mini-item{ padding:8px; }
+  .mini-thumb{ width:44px; height:44px; border-radius:12px; }
+
+  /* Chips más cómodos */
+  .resume .chip{ padding:8px 10px; }
+  .resume .ship{ gap:8px; }
+
+  /* Foto de Carolina: limitada */
+  .about-media img{
+    height: 340px;
+    object-fit: cover;
+  }
+}
+
+/* Teléfonos muy pequeños */
+@media (max-width: 420px){
+  /* Luz/base en 1 columna */
+  .card-list{ grid-template-columns:1fr; }
+
+  /* Plantas aún más compactas */
+  .plant-gallery .opt-card{ min-width: 170px; }
+  .plant-gallery .opt-card img{ height:120px; }
+
+  .opt-card img{ height:88px; }
+}
 </style>
 </head>
 
@@ -458,7 +517,6 @@ section{ scroll-margin-top: 18px; }
           <div class="resume-sub">Selecciona opciones y pide por WhatsApp</div>
         </div>
 
-        <!-- ✅ preview solo imágenes -->
         <div class="mini-pv" aria-label="Vista previa de selección">
           <div class="mini-item empty" id="pv-planta"><div class="mini-thumb"><img alt="" /></div></div>
           <div class="mini-item empty" id="pv-luz"><div class="mini-thumb"><img alt="" /></div></div>
@@ -486,7 +544,6 @@ section{ scroll-margin-top: 18px; }
           <input id="chk-tyc" type="checkbox"> Acepto <a href="#tyc">Términos y condiciones</a>.
         </label>
 
-        <!-- ✅ aviso pequeño -->
         <div id="tyc-alert" class="tyc-alert">Debes aceptar Términos y condiciones para realizar el pedido.</div>
 
         <div class="cta">
@@ -565,10 +622,8 @@ section{ scroll-margin-top: 18px; }
         </div>
       </div>
 
-      <!-- ✅ SECCIÓN RE-AGREGADA -->
       <section id="about" class="card about-block mt14">
         <div class="about-media">
-          <!-- Asegúrate de que tu ruta sea EXACTA: assets/perfil/carota.jpg -->
           <img src="assets/perfil/carota.jpg" alt="Carolina Vivas" loading="lazy">
           <small>Nuestro taller</small>
         </div>
@@ -590,13 +645,19 @@ section{ scroll-margin-top: 18px; }
         <p class="mt10">
           Natural Touch ofrece la fabricación e instalación de adornos decorativos (laminados, iluminación y plantas).
           El servicio es para espacios interiores. El cliente elige y aprueba el lugar de instalación y garantiza el acceso.
+          Los elementos vivos requieren cuidados; se entregan recomendaciones básicas.
         </p>
 
         <a class="toggler mt10" id="tyc-toggle" href="javascript:void(0)" aria-expanded="false">Seguir leyendo</a>
         <div class="tyc-more">
           <div class="mt10">
-            <p><b>Pagos</b>: 50% para iniciar (materiales) y 50% al finalizar la instalación.</p>
-            <p><b>Garantía</b>: 3 meses sobre instalación e iluminación contra defectos.</p>
+            <p><b>Selección del lugar</b>: el cliente aprueba el punto exacto de instalación; Natural Touch asesora pero no se responsabiliza por redes/tuberías ocultas. Cambios posteriores pueden generar costos.</p>
+            <p><b>Condiciones del entorno</b>: solo interiores bajo techo, sin lluvia ni humedad extrema. Se requiere luz natural adecuada para el bienestar de las plantas.</p>
+            <p><b>Naturaleza de las plantas</b>: son seres vivos y requieren mantenimiento. No hay responsabilidad por deterioro por falta de cuidados, riego inadecuado o exposición indebida.</p>
+            <p><b>Mantenimiento</b>: se sugiere limpieza bimestral de frascos y piedras. Mantenimiento adicional puede contratarse aparte.</p>
+            <p><b>Pagos</b>: 50% para iniciar (materiales) y 50% al finalizar la instalación. El abono inicial no es reembolsable si el cliente cancela.</p>
+            <p><b>Acceso</b>: el cliente o representante debe estar presente y garantizar acceso oportuno. Retrasos por acceso no garantizado no son atribuibles a Natural Touch.</p>
+            <p><b>Garantía</b>: 3 meses sobre instalación e iluminación contra defectos de fabricación/instalación. No cubre mal uso, humedad, sol directo o manipulación no autorizada.</p>
             <p><b>Aceptación</b>: al realizar el abono inicial o aprobar el proyecto, el cliente acepta estos términos.</p>
           </div>
         </div>
@@ -696,7 +757,6 @@ function paintResume(){
   r.frasco.textContent = state.frasco || '—';
   r.piedra.textContent = state.piedras|| '—';
 
-  // ✅ pedir: TyC + al menos 1 selección (planta/luz/base)
   const anyMain = !!(state.planta || state.luz || state.base);
   const canOrder = r.chk.checked && anyMain;
 
@@ -707,7 +767,7 @@ function paintResume(){
     a.setAttribute('aria-disabled', String(!canOrder));
   });
 
-  // ✅ aviso TyC: solo si ya hay selección y no aceptó
+  // ✅ Aviso TyC: solo si ya hay selección y no aceptó
   r.alert.classList.toggle('show', anyMain && !r.chk.checked);
 }
 
